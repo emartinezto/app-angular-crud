@@ -1,1 +1,7 @@
-<p>home works!</p>
+<section class="user__list">
+    @for(user of arrUsers; track user.id) {
+    <article>
+        <app-user-card [user]="user"></app-user-card>
+    </article>
+    }
+</section>

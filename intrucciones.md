@@ -1,6 +1,8 @@
 ## API DE USUARIOS
-
 https://peticiones.online/users 
+
+## URL Iconografia
+https://phosphoricons.com/
 
 - Componentes:
 
@@ -14,3 +16,8 @@ https://peticiones.online/users
 - Servicios => que será el encargado de conectar con la API y traerse los datos. Y servirlos a los diferentes componentes
 
     - components/user-card => que es la tarjeta que vamos a cargar del propio usuario
+
+    <!-- cosas pendientes -->
+    - pagina 404
+    - click boton menu movil
+    - cargar fuente de google
