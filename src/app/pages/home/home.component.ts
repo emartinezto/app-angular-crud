@@ -13,16 +13,34 @@ import { UserCardComponent } from "../../components/user-card/user-card.componen
 export class HomeComponent {
   arrUsers: IUser[] = [];
   usersServices = inject(UsersService);
+  totalPage: number = 0;
+  pages: number[] = [];
 
   ngOnInit() {
     this.usersServices.getAll().subscribe({
       next: (data) => {
         this.arrUsers = data.results;
-        console.log(this.arrUsers);
+        this.totalPage = data.total_pages;
+        for (let i = 1; i <= this.totalPage; i++) {
+          this.pages.push(i);
+        }
       },
       error: (error) => {
         console.error(error);
       }
     });
+  }
+
+  changePage(event: any) {
+    const pageURL = event.target.dataset.page;
+    this.usersServices.getAll(pageURL).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (error) => {
+        console.error(error);
+      }
+    });
+
   }
 }

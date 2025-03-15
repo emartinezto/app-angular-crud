@@ -5,3 +5,8 @@
     </article>
     }
 </section>
+<div style="padding-bottom: 3rem;display: flex;justify-content:center;gap: 1rem;">
+    @for(page of pages; track page) {
+    <button (click)="changePage($event)" [attr.data-page]="page" style=" width: 50px; height: 50px;">{{page}}</button>
+    }
+</div>

@@ -9,9 +9,10 @@ import { Observable } from 'rxjs';
 export class UsersService {
 
   private httpClient = inject(HttpClient);
-  private baseUrl: string = 'https://peticiones.online/api/users'
+  private baseUrl: string = 'https://peticiones.online/api/users';
 
-  getAll(): Observable<IResponse> {
-    return this.httpClient.get<IResponse>(this.baseUrl);
+  getAll(pageURL?: string): Observable<IResponse> {
+    const url = pageURL ? `${this.baseUrl}?page=${pageURL}` : `${this.baseUrl}?page=1`;
+    return this.httpClient.get<IResponse>(url);
   }
 }
