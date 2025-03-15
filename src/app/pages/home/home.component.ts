@@ -35,7 +35,7 @@ export class HomeComponent {
     const pageURL = event.target.dataset.page;
     this.usersServices.getAll(pageURL).subscribe({
       next: (data) => {
-        console.log(data);
+        this.arrUsers = data.results;
       },
       error: (error) => {
         console.error(error);
