@@ -21,3 +21,4 @@ https://phosphoricons.com/
     - pagina 404
     - click boton menu movil
     - cargar fuente de google
+    - refactorizar home.component.ts

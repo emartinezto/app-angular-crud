@@ -1,4 +1,4 @@
-<div class="user-card">
+<div class="user-card" [routerLink]="['/user', user._id]">
   <figure class="user-card__figure">
     <img class="user-card__img" [src]="user.image" [alt]="user.first_name">
     <figcaption>

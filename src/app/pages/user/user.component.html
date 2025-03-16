@@ -1,1 +1,21 @@
-<p>user works!</p>
+<section>
+  <figure>
+    <img [src]="actualUser.image" [alt]="actualUser.first_name" [title]="actualUser.first_name">
+  </figure>
+  <div>
+    <div>
+      <p>{{actualUser.first_name}}</p>
+    </div>
+    <div>
+      <p>{{actualUser.last_name}}</p>
+    </div>
+    <div>
+      <p>nombre de usuario:</p>
+      <p>{{actualUser.username}}</p>
+    </div>
+    <div>
+      <p>email</p>
+      <p>{{actualUser.email}}</p>
+    </div>
+  </div>
+</section>
