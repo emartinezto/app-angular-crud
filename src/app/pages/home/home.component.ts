@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
 import { IResponse } from '../../interfaces/iresponse.interface';
+import { toast } from 'ngx-sonner';
 import { UserCardComponent } from "../../components/user-card/user-card.component";
 
 @Component({
@@ -42,5 +43,20 @@ export class HomeComponent {
       }
     });
 
+  }
+
+  deleteUser(event: Boolean) {
+    if (event) {
+      //refresco la lista de empleados this.arrUsers  
+      this.usersServices.getAll().subscribe({
+        next: (data) => {
+          this.arrUsers = data.results;
+          toast.info(`El usuario se ha eliminado de la lista`);
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      });
+    }
   }
 }

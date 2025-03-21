@@ -10,7 +10,7 @@ import { UsersService } from '../../services/users.service';
 })
 export class UserComponent {
   @Input() idUser: string = "";
-  actualUser: IUser = { first_name: '', last_name: '', username: '', email: '', image: '', password: '' };
+  actualUser: IUser = { _id: '', first_name: '', last_name: '', username: '', email: '', image: '', password: '' };
   usersServices = inject(UsersService);
 
 

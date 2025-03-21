@@ -1,7 +1,7 @@
 <section class="user__list">
     @for(user of arrUsers; track user.id) {
     <article>
-        <app-user-card [user]="user"></app-user-card>
+        <app-user-card [user]="user" (deleteUserEmit)="deleteUser($event)"></app-user-card>
     </article>
     }
 </section>

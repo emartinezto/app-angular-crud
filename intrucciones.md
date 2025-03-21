@@ -22,3 +22,6 @@ https://phosphoricons.com/
     - click boton menu movil
     - cargar fuente de google
     - refactorizar home.component.ts
+
+
+    formulario de tipo template
