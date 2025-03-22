@@ -1,19 +1,27 @@
-<form>
-  <div>
-    <label for="name">Nombre de usuario</label>
-    <input type="text" name="name" id="name" placeholder="Introduzca nombre de usuario">
-  </div>
-  <div>
-    <label for="surname">Apellido de usuario</label>
-    <input type="text" name="surname" id="surname" placeholder="Introduzca apellido de usuario">
-  </div>
-  <div>
-    <label for="email">Email de usuario</label>
-    <input type="email" name="email" id="email" placeholder="Introduzca email de usuario">
-  </div>
-  <div>
-    <label for="image">Imagen de usuario</label>
-    <input type="text" name="iamge" id="image" placeholder="Introduzca imagen de usuario">
-  </div>
-  <input type="submit" value="Guardar">
-</form>
+<section>
+  <h1>{{title}}</h1>
+  <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
+    <input type="hidden" formControlName="_id">
+    <div>
+      <label for="first_name">Nombre de usuario</label>
+      <input type="text" formControlName="first_name" id="first_name" placeholder="Introduzca nombre de usuario">
+    </div>
+    <div>
+      <label for="last_name">Apellido de usuario</label>
+      <input type="text" formControlName="last_name" id="last_name" placeholder="Introduzca apellido de usuario">
+    </div>
+    <div>
+      <label for="email">Email de usuario</label>
+      <input type="email" formControlName="email" id="email" placeholder="Introduzca email de usuario">
+    </div>
+    <div>
+      <label for="password">Introduce una contraseña</label>
+      <input type="password" formControlName="password" id="password" placeholder="Introduzca una contraseña">
+    </div>
+    <div>
+      <label for="image">Imagen de usuario</label>
+      <input type="text" formControlName="image" id="image" placeholder="Introduzca imagen de usuario">
+    </div>
+    <input type="submit" [value]="userForm.get('_id')?.value ? 'Actualizar' : 'Guardar' ">
+  </form>
+</section>
