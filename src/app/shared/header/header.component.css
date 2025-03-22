@@ -14,12 +14,11 @@
   padding: 1rem;
   width: 100%;
   margin: auto;
-  max-width: 1320px;
+  max-width: 1440px;
 }
 
 .header__title,
 .header__title-span {
-  color: var(--color-white);
   font-weight: 600;
   cursor: pointer;
 

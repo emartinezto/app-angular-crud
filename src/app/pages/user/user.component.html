@@ -1,22 +1,28 @@
-<section>
-  <figure>
-    <img [src]="actualUser.image" [alt]="actualUser.first_name" [title]="actualUser.first_name">
+<section class="user-view">
+  <figure class="user-view__figure">
+    <img class="user-view__img" [src]="actualUser.image" [alt]="actualUser.first_name" [title]="actualUser.first_name">
   </figure>
-  <div>
-    <div>
-      <p>{{actualUser.first_name}}</p>
+  <div class="user-view__inner">
+    <div class="user-view__content">
+      <div class="user-view__head">
+        <h2 class="user-view__name">{{actualUser.first_name}}</h2>
+        <h2 class="user-view__surname">{{actualUser.last_name}}</h2>
+      </div>
+      <div class="user-view__body">
+        <div class="user-view__item">
+          <p class="user-view__label">Usuario:</p>
+          <p class="user-view__usuario">{{actualUser.username}}</p>
+        </div>
+        <div class="user-view__item">
+          <p class="user-view__label">Email:</p>
+          <p class="user-view__email">{{actualUser.email}}</p>
+        </div>
+        <div class="user-view__item">
+          <p class="user-view__label">Password:</p>
+          <p class="user-view__password">{{actualUser.password}}</p>
+        </div>
+      </div>
     </div>
-    <div>
-      <p>{{actualUser.last_name}}</p>
-    </div>
-    <div>
-      <p>nombre de usuario:</p>
-      <p>{{actualUser.username}}</p>
-    </div>
-    <div>
-      <p>email</p>
-      <p>{{actualUser.email}}</p>
-    </div>
+    <app-buttons [user]="actualUser" [back]="true"></app-buttons>
   </div>
-  <app-buttons [user]="actualUser" [back]="true"></app-buttons>
 </section>

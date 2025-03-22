@@ -65,7 +65,7 @@ html {
   scroll-behavior: smooth;
   background-color: var(--color-black);
   font-family: "Open Sans", sans-serif;
-
+  color: var(--color-white);
 }
 
 /* variables de color */
@@ -95,6 +95,13 @@ html {
 main {
   padding-top: 3rem;
   padding-bottom: 3rem;
+
+  @media (min-width: 768px) {
+    min-height: calc(100vh - 66px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   @media (min-width: 1024px) {
     padding-top: 5rem;
