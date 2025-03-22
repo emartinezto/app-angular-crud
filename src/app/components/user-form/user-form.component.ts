@@ -52,7 +52,6 @@ export class UserFormComponent {
     } else {
       // nuevo usuario (insertar)
       let response = await this.usersServices.insert(this.userForm.value);
-      console.log(response);
       // La forma de tratar si hay un error en la respuesta
       if ('error' in response) {
         toast.error(`${response.error}`);

@@ -8,10 +8,13 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  toggleMenu(event: any) {
-    const header = (event.currentTarget as HTMLElement).closest('header');
-    if (header) {
-      header.classList.toggle('is-open');
-    }
+  isOpen = false;
+
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
+  }
+
+  closeMenu() {
+    this.isOpen = false;
   }
 }

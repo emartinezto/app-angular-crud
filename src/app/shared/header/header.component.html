@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" [class.is-open]="isOpen">
   <div class="header__container">
     <!-- logo -->
     <h1 class="header__title" [routerLink]="['/home']">MediaConnect<span class="header__title-span">.</span></h1>
@@ -7,17 +7,17 @@
       <div class="header__nav-container">
         <ul class="header__list">
           <li class="header__item">
-            <a class="header__link" [routerLink]="['/home']" (click)="toggleMenu($event)" title="Home">home</a>
+            <a class="header__link" [routerLink]="['/home']" title="Home" (click)="closeMenu()">home</a>
           </li>
           <li class="header__item">
-            <a class="header__link" [routerLink]="['/newuser']" (click)="toggleMenu($event)" title="nuevo usuario">Nuevo
+            <a class="header__link" [routerLink]="['/newuser']" title="nuevo usuario" (click)="closeMenu()">Nuevo
               usuario</a>
           </li>
         </ul>
       </div>
     </nav>
     <!-- hamburguesa -->
-    <div class="header__hamburguer" (click)="toggleMenu($event)" [attr.data-open]="false">
+    <div class="header__hamburguer" (click)="toggleMenu()">
       <div class="header__hamburguer-icon"></div>
     </div>
   </div>
