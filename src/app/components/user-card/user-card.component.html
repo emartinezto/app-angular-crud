@@ -5,5 +5,5 @@
       <h2 class="user-card__figcaption">{{user.first_name }} {{user.last_name}}</h2>
     </figcaption>
   </figure>
-  <app-buttons [user]="user" (deleteItemEmit)="deleteUser($event)"></app-buttons>
+  <app-buttons [user]="user" [back]="false" (deleteItemEmit)="deleteUser($event)"></app-buttons>
 </div>

@@ -12,6 +12,7 @@ import { UsersService } from '../../services/users.service';
 })
 export class ButtonsComponent {
   @Input() user!: IUser;
+  @Input() back: Boolean = false;
   userService = inject(UsersService);
   @Output() deleteItemEmit: EventEmitter<Boolean> = new EventEmitter();
   router = inject(Router)
