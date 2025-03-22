@@ -1,20 +1,3 @@
-.user__title-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  gap: 1rem;
-}
-
-.user__title {
-  font-weight: 600;
-}
-
-.line {
-  width: 100%;
-  background-color: var(--color-backdrop);
-  height: 2px;
-}
-
 .user__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

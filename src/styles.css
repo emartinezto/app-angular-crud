@@ -149,3 +149,21 @@ p {
     line-height: 1.8;
   }
 }
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.header__title {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.header__line {
+  width: 100%;
+  background-color: var(--color-backdrop);
+  height: 2px;
+}
