@@ -1,10 +1,12 @@
 import { Component, Input, inject } from '@angular/core';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
+import { ButtonsComponent } from "../../shared/buttons/buttons.component";
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [ButtonsComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
@@ -17,8 +19,8 @@ export class UserComponent {
   async ngOnInit() {
     try {
       this.actualUser = await this.usersServices.getByid(this.idUser);
-    } catch (error) {
-      console.error(error);
+    } catch (msg: any) {
+      toast.error(msg.error);
     }
   }
 }

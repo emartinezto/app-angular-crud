@@ -51,7 +51,6 @@ export class HomeComponent {
       this.usersServices.getAll().subscribe({
         next: (data) => {
           this.arrUsers = data.results;
-          toast.info(`El usuario se ha eliminado de la lista`);
         },
         error: (error) => {
           console.error(error);

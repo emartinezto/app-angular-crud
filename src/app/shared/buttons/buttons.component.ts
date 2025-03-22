@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { IUser } from '../../interfaces/iuser.interface';
 import { toast } from 'ngx-sonner';
 import { UsersService } from '../../services/users.service';
@@ -14,6 +14,7 @@ export class ButtonsComponent {
   @Input() user!: IUser;
   userService = inject(UsersService);
   @Output() deleteItemEmit: EventEmitter<Boolean> = new EventEmitter();
+  router = inject(Router)
 
   deleteUser(id: string) {
     toast(`¿deseas borrar el usuario ${this.user.first_name} ${this.user.last_name} ?`, {
@@ -21,22 +22,21 @@ export class ButtonsComponent {
         label: 'Aceptar',
         onClick: async () => {
           try {
-            let response = await this.userService.delete(id);
-
-            if ('error' in response) {
-              toast.error(`${response.error}`);
-            } else {
+            await this.userService.delete(id);
+            if (this.deleteItemEmit.observed) {
               this.deleteItemEmit.emit(true);
+            } else {
+              this.router.navigate(['/home']);
             }
-          } catch (error) {
-            console.error('Error en la petición:', error);
-            toast.error('Ocurrió un error al intentar borrar el usuario.');
+            toast.info('El usuario se ha eliminado correctamente');
+          } catch (msg: any) {
+            toast.error(msg.error);
           }
         }
       },
       cancel: {
         label: 'Cancelar',
-        onClick: () => toast.info('El usuario no se a borrado'),
+        onClick: () => toast.warning('El usuario no se a borrado'),
       },
     })
   }
