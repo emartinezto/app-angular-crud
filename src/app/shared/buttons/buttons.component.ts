@@ -36,7 +36,7 @@ export class ButtonsComponent {
       },
       cancel: {
         label: 'Cancelar',
-        onClick: () => toast.warning('El usuario no se a borrado'),
+        onClick: () => toast.info('El usuario no se a borrado'),
       },
     })
   }
