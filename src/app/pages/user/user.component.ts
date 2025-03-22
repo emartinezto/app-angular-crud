@@ -17,10 +17,11 @@ export class UserComponent {
 
 
   async ngOnInit() {
-    try {
-      this.actualUser = await this.usersServices.getByid(this.idUser);
-    } catch (msg: any) {
-      toast.error(msg.error);
+    let response = this.actualUser = await this.usersServices.getByid(this.idUser);
+    // La forma de tratar si hay un error en la respuesta
+    if ('error' in response) {
+      toast.error(`${response.error}`);
+      return;
     }
   }
 }

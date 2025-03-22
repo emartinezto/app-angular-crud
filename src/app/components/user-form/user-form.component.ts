@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user-form',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './user-form.component.css'
 })
 export class UserFormComponent {
+  @Input() idUser: string = "";
 
+  ngOnInit() {
+    console.log(this.idUser);
+  }
 }
