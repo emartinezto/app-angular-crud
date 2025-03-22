@@ -1,11 +1,13 @@
 .user-card {
-    padding: 1rem;
-    border: 1px solid var(--color-gray);
+    padding: .5rem;
+    border: 1px solid var(--color-backdrop);
+    background-color: var(--color-backdrop);
     border-radius: .25rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .user-card__figure {
@@ -25,7 +27,7 @@
 }
 
 .user-card__figcaption {
-    font-size: 1rem;
+    color: var(--color-white);
     text-align: center;
 }
 
@@ -41,7 +43,8 @@
 
 @media (min-width: 768px) {
     .user-card {
-        gap: 2rem;
+        gap: 3.5rem;
+        padding: 1rem;
     }
 
     .user-card__figure {

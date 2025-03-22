@@ -16,12 +16,14 @@ export class HomeComponent {
   usersServices = inject(UsersService);
   totalPage: number = 0;
   pages: number[] = [];
+  currentPage: number = 1;
 
   ngOnInit() {
     this.usersServices.getAll().subscribe({
       next: (data) => {
         this.arrUsers = data.results;
         this.totalPage = data.total_pages;
+        this.currentPage = data.page;
         for (let i = 1; i <= this.totalPage; i++) {
           this.pages.push(i);
         }
@@ -37,6 +39,7 @@ export class HomeComponent {
     this.usersServices.getAll(pageURL).subscribe({
       next: (data) => {
         this.arrUsers = data.results;
+        this.currentPage = Number(pageURL);
       },
       error: (error) => {
         console.error(error);

@@ -1,3 +1,7 @@
+<div class="user__title-container">
+    <h2 class="user__title">Usuarios</h2>
+    <div class="line"></div>
+</div>
 <section class="user__list">
     @for(user of arrUsers; track user.id) {
     <article>
@@ -5,8 +9,9 @@
     </article>
     }
 </section>
-<div style="padding-bottom: 3rem;display: flex;justify-content:center;gap: 1rem;">
+<div class="user__page">
     @for(page of pages; track page) {
-    <button (click)="changePage($event)" [attr.data-page]="page" style=" width: 50px; height: 50px;">{{page}}</button>
+    <button class="user__page-button" (click)="changePage($event)" [attr.data-page]="page"
+        [class.is-active]="page === currentPage">{{page}}</button>
     }
 </div>

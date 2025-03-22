@@ -2,25 +2,25 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 ul[role='list'],
 ol[role='list'] {
-    list-style: none;
+  list-style: none;
 }
 
 html:focus-within {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 a:not([class]) {
-    text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 img,
@@ -28,116 +28,117 @@ picture,
 svg,
 video,
 canvas {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    font-style: italic;
-    background-repeat: no-repeat;
-    background-size: cover;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 input,
 button,
 textarea,
 select {
-    font: inherit;
+  font: inherit;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html:focus-within {
-        scroll-behavior: auto;
-    }
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-        transition: none;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition: none;
+  }
 }
 
 body,
 html {
-    height: 100%;
-    scroll-behavior: smooth;
+  height: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--color-black);
+  font-family: "Open Sans", sans-serif;
+
 }
 
 /* variables de color */
 
 :root {
-    /* colores */
-    --color-white: #fff;
-    --color-yellow: #ffc72c;
-    --color-gray: #4e4e4e;
-    --color-black: #000;
-    /* fuentes */
-    --font-h1: 1.75rem;
-    --font-h2: 1.375rem;
-    --font-h3: 1.125rem;
-    --font-h4: 1rem;
-    --font-p: .875rem;
-    /* line-height */
-    --line-height-h1: 1.2;
-    --line-height-h2: 1.3;
-    --line-height-h3: 1.4;
-    --line-height-h4: 1.5;
-    --line-height-p: 1.6;
-
-    @media (min-width: 768px) {
-        /* fuentes */
-        --font-h1: 2rem;
-        --font-h2: 1.625rem;
-        --font-h3: 1.25rem;
-        --font-h4: 1.125rem;
-        --font-p: 1rem;
-        /* line-height */
-        --line-height-h1: 1.4;
-        --line-height-h2: 1.4;
-        --line-height-h3: 1.5;
-        --line-height-h4: 1.6;
-        --line-height-p: 1.8;
-    }
+  /* colores */
+  --color-white: #fff;
+  --color-blue: #00F0FF;
+  --color-black: #111111;
+  --color-backdrop: #232220;
 }
 
 /* container */
 .container {
-    max-width: 1440px;
-    margin: 0 auto;
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
-    @media (min-width: 768px) {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
+  @media (min-width: 768px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+main {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  @media (min-width: 1024px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 }
 
 /* Tipografias */
 h1 {
-    font-size: var(--font-h1);
-    line-height: var(--line-height-h1);
+  font-size: 1.75rem;
+  line-height: 1.2;
+
+  @media (min-width: 1280px) {
+    font-size: 2rem;
+    line-height: 1.4;
+  }
 }
 
 h2 {
-    font-size: var(--font-h2);
-    line-height: var(--line-height-h2);
+  font-size: 1.375rem;
+  line-height: 1.3;
+
+  @media (min-width: 1280px) {
+    font-size: 1.625rem;
+    line-height: 1.4;
+  }
 }
 
 h3 {
-    font-size: var(--font-h3);
-    line-height: var(--line-height-h3);
-}
+  font-size: 1.125rem;
+  line-height: 1.4;
 
-h4 {
-    font-size: var(--font-h4);
-    line-height: var(--line-height-h4);
+  @media (min-width: 1280px) {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
 }
 
 p {
-    font-size: var(--font-p);
-    line-height: var(--line-height-h5);
+  font-size: .875rem;
+  line-height: 1.6;
+
+  @media (min-width: 1280px) {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
 }

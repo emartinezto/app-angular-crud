@@ -1,25 +1,23 @@
 <header class="header">
   <div class="header__container">
     <!-- logo -->
-    <figure class="header__logo">
-      <img [routerLink]="['/home']" width="350" height="95" class="header__img" src="./logo.png" alt="logo"
-        title="logo">
-    </figure>
+    <h1 class="header__title" [routerLink]="['/home']">MediaConnect<span class="header__title-span">.</span></h1>
     <!-- menu -->
     <nav class="header__nav">
       <div class="header__nav-container">
         <ul class="header__list">
           <li class="header__item">
-            <a class="header__link" [routerLink]="['/home']" title="Home">home</a>
+            <a class="header__link" [routerLink]="['/home']" (click)="toggleMenu($event)" title="Home">home</a>
           </li>
           <li class="header__item">
-            <a class="header__link" [routerLink]="['/newuser']" title="nuevo usuario">Nuevo usuario</a>
+            <a class="header__link" [routerLink]="['/newuser']" (click)="toggleMenu($event)" title="nuevo usuario">Nuevo
+              usuario</a>
           </li>
         </ul>
       </div>
     </nav>
     <!-- hamburguesa -->
-    <div class="header__hamburguer">
+    <div class="header__hamburguer" (click)="toggleMenu($event)" [attr.data-open]="false">
       <div class="header__hamburguer-icon"></div>
     </div>
   </div>
