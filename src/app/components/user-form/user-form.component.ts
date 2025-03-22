@@ -30,6 +30,7 @@ export class UserFormComponent {
       _id: new FormControl(this.idUser || null, []),
       first_name: new FormControl(this.user?.first_name || '', []),
       last_name: new FormControl(this.user?.last_name || '', []),
+      username: new FormControl(this.user?.username || '', []),
       email: new FormControl(this.user?.email || '', []),
       image: new FormControl(this.user?.image || '', []),
       password: new FormControl(this.user?.password || '', []),
@@ -44,16 +45,19 @@ export class UserFormComponent {
       if ('error' in response) {
         toast.error(`${response.error}`);
       } else {
+        console.log(response);
         toast.success('Usuario actualizado correctamente');
         this.router.navigate(['/home']);
       }
     } else {
-      // insertando
+      // nuevo usuario (insertar)
       let response = await this.usersServices.insert(this.userForm.value);
+      console.log(response);
       // La forma de tratar si hay un error en la respuesta
       if ('error' in response) {
         toast.error(`${response.error}`);
       } else {
+        console.log(response);
         toast.success('Usuario se ha creado correctamente');
         this.router.navigate(['/home']);
       }

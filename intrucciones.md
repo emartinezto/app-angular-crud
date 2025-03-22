@@ -18,10 +18,10 @@ https://phosphoricons.com/
     - components/user-card => que es la tarjeta que vamos a cargar del propio usuario
 
     <!-- cosas pendientes -->
-    - pagina 404
     - click boton menu movil
-    - cargar fuente de google
     - refactorizar home.component.ts
 
+    <!-- Cosas que comentar a Juan Antonio -->
+    - cuando se actualizar un usuario cambia todas las propiedades menos el password, da igual que se lo enviemos, no lo actualiza. No pasa nada por pasarle el _id en el servicio, aun asi el servicio nos devuelve un response ok. No response.error
 
-    formulario de tipo template
+    - cuando se crea un nuevo recoge todas los campos menos image, da igual que se lo enviemos, no lo actualiza, te da uan pro defecto. No pasa nada por pasarle el _id en el servicio, aun asi el servicio nos devuelve un response ok. No response.error.
