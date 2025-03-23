@@ -13,11 +13,21 @@ import { Router } from '@angular/router';
 })
 export class UserFormComponent {
   @Input() idUser: string = "";
-  userForm: FormGroup = new FormGroup({}, []);
-  user!: IUser;
-  usersServices = inject(UsersService);
   title: string = 'Registrar Usuario';
+  user!: IUser;
+
+  usersServices = inject(UsersService);
   router = inject(Router);
+
+  userForm: FormGroup = new FormGroup({
+    _id: new FormControl(null),
+    first_name: new FormControl('', []),
+    last_name: new FormControl('', []),
+    username: new FormControl('', []),
+    email: new FormControl('', []),
+    image: new FormControl('', []),
+    password: new FormControl('', [])
+  });
 
 
   async ngOnInit() {
