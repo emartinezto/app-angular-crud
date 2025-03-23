@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
 import { toast } from 'ngx-sonner';
@@ -22,18 +22,36 @@ export class UserFormComponent {
 
   async ngOnInit() {
     if (this.idUser) {
-      // llamamos al servicio y cargamos los datos del empleado
       this.user = await this.usersServices.getByid(this.idUser);
       this.title = 'Actualizar Usuario';
     }
     this.userForm = new FormGroup({
-      _id: new FormControl(this.idUser || null, []),
-      first_name: new FormControl(this.user?.first_name || '', []),
-      last_name: new FormControl(this.user?.last_name || '', []),
-      username: new FormControl(this.user?.username || '', []),
-      email: new FormControl(this.user?.email || '', []),
-      image: new FormControl(this.user?.image || '', []),
-      password: new FormControl(this.user?.password || '', []),
+      _id: new FormControl(this.idUser || null, this.idUser ? [Validators.required] : []),
+      first_name: new FormControl(this.user?.first_name || '', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      last_name: new FormControl(this.user?.last_name || '', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      username: new FormControl(this.user?.username || '', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      email: new FormControl(this.user?.email || '', [
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
+      ]),
+      image: new FormControl(this.user?.image || '', [
+        Validators.required,
+        Validators.pattern(/^https?:\/\/.*/)
+      ]),
+      password: new FormControl(this.user?.password || '', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(16)
+      ]),
     }, []);
   }
 
@@ -61,5 +79,10 @@ export class UserFormComponent {
         this.router.navigate(['/home']);
       }
     }
+  }
+
+  checkControl(controlName: string, errorName: string): Boolean | undefined {
+    return this.userForm.get(controlName)?.hasError(errorName) && this.userForm.get(controlName)?.touched;
+
   }
 }

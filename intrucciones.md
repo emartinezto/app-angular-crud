@@ -18,8 +18,7 @@ https://phosphoricons.com/
     - components/user-card => que es la tarjeta que vamos a cargar del propio usuario
 
     <!-- cosas pendientes -->
-    - click boton menu movil
-    - refactorizar home.component.ts
+    - refactorizar archivos ts
 
     <!-- Cosas que comentar a Juan Antonio -->
     - cuando se actualizar un usuario cambia todas las propiedades menos el password, da igual que se lo enviemos, no lo actualiza. No pasa nada por pasarle el _id en el servicio, aun asi el servicio nos devuelve un response ok. No response.error
