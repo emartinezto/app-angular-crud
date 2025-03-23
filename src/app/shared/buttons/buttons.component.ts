@@ -22,17 +22,22 @@ export class ButtonsComponent {
       action: {
         label: 'Aceptar',
         onClick: async () => {
-          let response = await this.userService.delete(id);
-          // La forma de tratar si hay un error en la respuesta
-          if ('error' in response) {
-            toast.error(`${response.error}`);
-            return;
-          }
-          toast.info(`El usuario ${this.user.first_name} ${this.user.last_name} se ha eliminado correctamente`);
-          if (this.deleteItemEmit.observed) {
-            this.deleteItemEmit.emit(true);
-          } else {
-            this.router.navigate(['/home']);
+          try {
+            let response = await this.userService.delete(id);
+            // La forma de tratar si hay un error en la respuesta
+            if ('error' in response) {
+              toast.error(`${response.error}`);
+              return;
+            }
+            toast.success(`El usuario ${this.user.first_name} ${this.user.last_name} se ha eliminado correctamente`);
+            if (this.deleteItemEmit.observed) {
+              this.deleteItemEmit.emit(true);
+            } else {
+              this.router.navigate(['/home']);
+            }
+          } catch (error) {
+            console.error(error);
+            toast.error(`${error}`);
           }
         }
       },

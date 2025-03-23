@@ -58,25 +58,35 @@ export class UserFormComponent {
   async getDataForm() {
     if (this.userForm.value._id) {
       // actualizando
-      let response = await this.usersServices.update(this.userForm.value);
-      // La forma de tratar si hay un error en la respuesta
-      if ('error' in response) {
-        toast.error(`${response.error}`);
-      } else {
-        console.log(response);
-        toast.success('Usuario actualizado correctamente');
-        this.router.navigate(['/home']);
+      try {
+        let response = await this.usersServices.update(this.userForm.value);
+        // La forma de tratar si hay un error en la respuesta
+        if ('error' in response) {
+          toast.error(`${response.error}`);
+        } else {
+          console.log(response);
+          toast.success('Usuario actualizado correctamente');
+          this.router.navigate(['/home']);
+        }
+      } catch (error) {
+        console.error(error);
+        toast.error(`${error}`);
       }
     } else {
-      // nuevo usuario (insertar)
-      let response = await this.usersServices.insert(this.userForm.value);
-      // La forma de tratar si hay un error en la respuesta
-      if ('error' in response) {
-        toast.error(`${response.error}`);
-      } else {
-        console.log(response);
-        toast.success('Usuario se ha creado correctamente');
-        this.router.navigate(['/home']);
+      try {
+        // nuevo usuario (insertar)
+        let response = await this.usersServices.insert(this.userForm.value);
+        // La forma de tratar si hay un error en la respuesta
+        if ('error' in response) {
+          toast.error(`${response.error}`);
+        } else {
+          console.log(response);
+          toast.success('Usuario se ha creado correctamente');
+          this.router.navigate(['/home']);
+        }
+      } catch (error) {
+        console.error(error);
+        toast.error(`${error}`);
       }
     }
   }

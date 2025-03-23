@@ -24,3 +24,5 @@ https://phosphoricons.com/
     - cuando se actualizar un usuario cambia todas las propiedades menos el password, da igual que se lo enviemos, no lo actualiza. No pasa nada por pasarle el _id en el servicio, aun asi el servicio nos devuelve un response ok. No response.error
 
     - cuando se crea un nuevo recoge todas los campos menos image, da igual que se lo enviemos, no lo actualiza, te da uan pro defecto. No pasa nada por pasarle el _id en el servicio, aun asi el servicio nos devuelve un response ok. No response.error.
+
+    - La api no contestas el error con un error, sino que siempre da un status 200 y cuando da error es en el response con un objeto {error:'xxxx'}. Por eso, aunque pongo try y catch, por si en algun momento se cambia la api y funciona con status, dentro del try he  tratado el response.error.
